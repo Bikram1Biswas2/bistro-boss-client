@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { axiosSecure } from "../../../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+
 
 const FoodCard = ({ item }) => {
   const { name, recipe, image, price, _id } = item;
@@ -21,7 +21,7 @@ const FoodCard = ({ item }) => {
         image,
         price,
       };
-      axiosSecure
+      useAxiosSecure
       .post("/carts", cartItem)
       .then((res) => {
         console.log(res.data);
