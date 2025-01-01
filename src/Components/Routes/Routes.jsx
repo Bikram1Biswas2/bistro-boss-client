@@ -6,6 +6,8 @@ import OurMenu from "../Pages/OurMenu/OurMenu";
 import OrderFood from "../Pages/OrderFood/OrderFood";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import DashBoard from "../../LayOut/DashBoard/DashBoard";
+import Cart from "../Pages/Dashboard/Cart/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -35,4 +37,15 @@ export const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path:'dashboard',
+    element:<DashBoard></DashBoard>,
+    errorElement:<h2>404 not found</h2>,
+    children:[
+      {
+         path:'cart',
+         element:<Cart></Cart>
+      }
+    ]
+  }
 ]);
