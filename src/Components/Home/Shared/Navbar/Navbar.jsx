@@ -1,34 +1,54 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../Provider/AuthProvider";
+import { MdShoppingCart } from "react-icons/md";
 
 const Navbar = () => {
-  const {user,logOut}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = ()=>{
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{})
-    .catch(error=>{
-      console.log(error);
-    })
-  }
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const navLinks = (
     <>
       <li>
-        <Link to='/'>Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to='/ourMenu'>Our Menu</Link>
+        <Link to="/ourMenu">Our Menu</Link>
       </li>
       <li>
-        <Link to='/orderFood/dessert'>Order Food</Link>
+        <Link to="/orderFood/dessert">Order Food</Link>
       </li>
-    {
-      user? <li><button onClick={handleLogOut} className="btn btn-ghost">Logout</button></li>:<>  <li>
-      <Link to='/login'>Login</Link>
-    </li></>
-    }
+      <li>
+        <Link>
+         
+         <div className="flex items-center gap-2 hover:bg-slate-500 p-1 rounded-xl">
+         <MdShoppingCart />
+         <div className="badge badge-secondary">+0</div>
+         </div>
+          
+        </Link>
+      </li>
+      {user ? (
+        <li>
+          <button onClick={handleLogOut} className="btn btn-ghost">
+            Logout
+          </button>
+        </li>
+      ) : (
+        <>
+          {" "}
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -58,12 +78,12 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Bistro Boss <br /> Restaurant</a>
+        <a className="btn btn-ghost text-xl">
+          Bistro Boss <br /> Restaurant
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-        {navLinks}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Login</a>
