@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -101,6 +102,8 @@ const from = location.state?.from?.pathname || "/";
                 <button disabled={disabled} className="btn btn-primary">Login</button>
               </div>
             </form>
+            <div className="divider"></div>
+            <SocialLogin></SocialLogin>
             <p className='text-center p-5 '><small>New to this website?Go to <Link className='text-red-700' to='/register'>Register</Link> Page</small></p>
           </div>
         </div>
