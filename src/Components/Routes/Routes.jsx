@@ -10,6 +10,8 @@ import DashBoard from "../../LayOut/DashBoard/DashBoard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AddItems from "../../LayOut/DashBoard/AddItems/AddItems";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -44,14 +46,19 @@ export const router = createBrowserRouter([
     element:<DashBoard></DashBoard>,
     errorElement:<h2>404 not found</h2>,
     children:[
+      // normal user route
       {
          path:'cart',
          element:<Cart></Cart>
       },
-      // admin routes
+      // admin only routes
+      {
+        path:'addItems',
+        element:<AdminRoute><AddItems></AddItems></AdminRoute>
+      },
       {
         path:'allUsers',
-        element:<AllUsers></AllUsers>
+        element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
       }
 
     ]
