@@ -23,7 +23,8 @@ const AddItems = () => {
             <input
               type="text"
               placeholder="Recipe Name"
-              {...register("name")}
+              {...register("name", {required:true})}
+              required
               className="input input-bordered w-full"
             />
           </label>
@@ -36,7 +37,7 @@ const AddItems = () => {
                 <span className="label-text">Category</span>
               </div>
               <select
-                {...register("category")}
+                {...register("category", {required:true})}
                 className="select select-bordered w-full"
               >
                 <option disabled selected>
@@ -59,7 +60,7 @@ const AddItems = () => {
                 type="number"
                 step="0.01"
                 placeholder="Price"
-                {...register("price")}
+                {...register("price", {required:true})}
                 className="input input-bordered w-full"
               />
             </div>
@@ -72,6 +73,7 @@ const AddItems = () => {
               </div>
               <textarea
                 className="textarea textarea-bordered h-24"
+                {...register('recipe')}
                 placeholder="Recipe Details"
               ></textarea>
             </label>
@@ -79,7 +81,7 @@ const AddItems = () => {
 
           {/* file submit */}
           <div>
-          <input type="file" className="file-input w-full max-w-xs border border-black border-solid" />
+          <input type="file" {...register('image', {required:true})} className="file-input w-full max-w-xs border border-black border-solid" />
           </div>
 
           {/* Submit Button */}
