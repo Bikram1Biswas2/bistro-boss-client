@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ManageItems = () => {
-    const [menu] = useMenu();
+    const [menu, , refetch] = useMenu();
     const axiosSecure = useAxiosSecure()
 
     const handleDeleteItem = (item)=>{
@@ -23,6 +23,7 @@ const ManageItems = () => {
                 const result = await axiosSecure.delete(`/menu/${item._id}`)
                 console.log(result.data);
                  if(result.data.deletedCount>0){
+                    refetch()
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
