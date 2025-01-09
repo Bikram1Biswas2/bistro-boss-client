@@ -4,6 +4,7 @@ import SectionTitle from "../../../Home/SectionTitle/SectionTitle";
 import { TfiWrite } from "react-icons/tfi";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
     const [menu, , refetch] = useMenu();
@@ -74,7 +75,9 @@ const ManageItems = () => {
                                 </td>
                                 <td>${item.price}</td>
                                 <td className="text-2xl">
-                                    <button className="btn btn-ghost"><TfiWrite className="bg-orange-500 text-white"/></button>
+                                   <Link to={`/dashboard/updateItem/${item._id}`}>
+                                   <button className="btn btn-ghost"><TfiWrite className="bg-orange-500 text-white"/></button>
+                                   </Link>
                                 </td>
                                 <td className="text-2xl"><FaTrash onClick={()=>handleDeleteItem(item)} className="bg-red-600 text-white p-1 rounded-md"></FaTrash></td>
                             </tr>
