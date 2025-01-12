@@ -68,8 +68,8 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/paymentHistory">
-                  <FaWallet></FaWallet> Payment History
+                <NavLink to="/dashboard/history">
+                  <FaCalendar></FaCalendar> History
                 </NavLink>
               </li>
               <li>
@@ -83,8 +83,8 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/myBooking">
-                  <FaCalendar></FaCalendar> My Booking
+                <NavLink to="/dashboard/paymentHistory">
+                  <FaWallet></FaWallet> Payment History
                 </NavLink>
               </li>
             </>
