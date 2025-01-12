@@ -31,12 +31,12 @@ const Navbar = () => {
       </li>
       {
         user && isAdmin && <li>
-        <Link to="/dashboard/adminHome">Dashboard</Link>
+        <Link to="/dashboard/adminHome">Admin Dashboard</Link>
       </li> 
       }
       {
         user && !isAdmin && <li>
-        <Link to="/dashboard/userHome">Dashboard</Link>
+        <Link to="/dashboard/userHome">User Dashboard</Link>
       </li> 
       }
       <li>
